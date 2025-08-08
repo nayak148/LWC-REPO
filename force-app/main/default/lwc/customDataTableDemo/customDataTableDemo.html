@@ -1,0 +1,19 @@
+<template>
+    <div class="slds-p-around_medium">
+        <h2 class="slds-text-heading_medium slds-m-bottom_small">Custom Data Table Demo</h2>
+        <c-custom-data-table
+            key-field="id"
+            columns={columns}
+            data={rows}
+            selectable
+            show-row-number
+            page-size="5"
+            onselectionchange={handleSelectionChange}
+            onsort={handleSort}
+        ></c-custom-data-table>
+
+        <template if:true={selectedInfo}>
+            <div class="slds-m-top_small slds-text-title">Selected Keys: {selectedInfo}</div>
+        </template>
+    </div>
+</template>
