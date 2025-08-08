@@ -1,0 +1,76 @@
+<template>
+    <div class="datatable">
+        <div class="controls" if:true={enablePagination}>
+            <div class="pagination">
+                <button class="nav" onclick={handleFirstPage} disabled={isFirstPage} title="First">«</button>
+                <button class="nav" onclick={handlePrevPage} disabled={isFirstPage} title="Previous">‹</button>
+                <span class="page-info">Page {pageNumber} / {pageCount}</span>
+                <button class="nav" onclick={handleNextPage} disabled={isLastPage} title="Next">›</button>
+                <button class="nav" onclick={handleLastPage} disabled={isLastPage} title="Last">»</button>
+                <span class="total-info">Showing {pageStart}–{pageEnd} of {totalRows}</span>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                <thead>
+                    <tr>
+                        <template if:true={selectable}>
+                            <th class="select-col">
+                                <input type="checkbox" checked={isPageAllSelected} onchange={handleToggleSelectAll} />
+                            </th>
+                        </template>
+
+                        <template if:true={showRowNumber}>
+                            <th class="rownum-col">#</th>
+                        </template>
+
+                        <template for:each={displayColumns} for:item="col">
+                            <th key={col.fieldName} class={col.headerClass} style={col.headerStyle}>
+                                <button class="th-button" data-field={col.fieldName} onclick={handleHeaderClick} disabled={col.disableSort}>
+                                    <span>{col.label}</span>
+                                    <template if:true={col.isSorted}>
+                                        <span class={col.sortClass} aria-hidden="true"></span>
+                                    </template>
+                                </button>
+                            </th>
+                        </template>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template if:true={renderRows}>
+                        <template for:each={renderRows} for:item="row" for:index="rowIndex">
+                            <tr key={row.key} class="data-row">
+                                <template if:true={selectable}>
+                                    <td class="select-col">
+                                        <input type="checkbox" data-key={row.key} checked={row.selected} onchange={handleToggleRow} />
+                                    </td>
+                                </template>
+
+                                <template if:true={showRowNumber}>
+                                    <td class="rownum-col">{row.rowNumber}</td>
+                                </template>
+
+                                <template for:each={row.cells} for:item="cell">
+                                    <td key={cell.key} class={cell.cellClass} style={cell.cellStyle}>
+                                        <template if:true={cell.isUrl}>
+                                            <a href={cell.href} target="_blank" rel="noopener">{cell.display}</a>
+                                        </template>
+                                        <template if:false={cell.isUrl}>
+                                            <span>{cell.display}</span>
+                                        </template>
+                                    </td>
+                                </template>
+                            </tr>
+                        </template>
+                    </template>
+                    <template if:false={hasRows}>
+                        <tr>
+                            <td class="empty" colspan={colSpan}>No records to display</td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</template>
