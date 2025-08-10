@@ -1,0 +1,32 @@
+<template>
+<lightning-card>
+<div class="slds-grid slds-grid_vertical">
+<div class="slds-col">
+<span>
+    <lightning-card title="one way data Binding">
+    <div class="slds-m-left_medium">
+   <p>
+   <b> Hello  {isTrackingName} </b>
+    </p>
+    </div>
+ </lightning-card>
+    
+</span>
+</div>
+<div class="slds-col">
+<span>
+    <lightning-card title="Two way data Binding by Track decorator">
+      <div class="slds-m-left_medium">
+   <p>
+   <b> Hello  {isTrackingName2} </b>
+  <lightning-input type="text" label="Enter some text" onchange={capMe}></lightning-input>
+
+    </p>
+    </div>
+ </lightning-card>
+ </span>
+</div>
+</div>
+</lightning-card>
+
+</template>

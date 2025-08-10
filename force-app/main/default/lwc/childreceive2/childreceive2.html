@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="Child Component 2 by chatGtp">
+        <div class="slds-m-around_medium">
+            <p if:true = {receivedData}>Received Data: {receivedData}</p>
+            <p if:false = {receivedData}>No data received yet</p>
+
+            {receivedData2}
+        </div>
+    </lightning-card>
+</template>

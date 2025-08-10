@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="Upload and Preview Documents" icon-name="utility:upload">
+        <lightning-file-upload label="Upload File" record-id={recordId} accepted-formats={acceptedFormats}></lightning-file-upload>
+        <template if:true={uploadedFiles.length}>
+            <p>Uploaded Files:</p>
+            <ul>
+                <template for:each={uploadedFiles} for:item="file">
+                    <li key={file.Id}>
+                        <a href={file.ContentDownloadUrl} target="_blank">{file.Title}</a>
+                    </li>
+                </template>
+            </ul>
+        </template>
+    </lightning-card>
+</template>

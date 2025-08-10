@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="Case Management Dashboard Module 2" icon-name="standard:case">
+        <div class="slds-m-around_medium">
+            <lightning-input label="Filter by Status" onchange={handleStatusChange}></lightning-input>
+            <lightning-button label="Refresh" onclick={handleRefresh} class="slds-m-left_small"></lightning-button>
+        </div>
+        <template if:true={cases.length}>
+            <lightning-datatable data={cases} columns={columns} key-field="id">
+            </lightning-datatable>
+        </template>
+        <template if:true={isLoading}>
+            <lightning-spinner alternative-text="Loading Cases..."></lightning-spinner>
+        </template>
+    </lightning-card>
+</template>

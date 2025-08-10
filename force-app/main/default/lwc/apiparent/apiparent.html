@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="api child public property to parent">
+  <ul>
+    <template for:each={roominfo.roomname} for:item="room">
+        <li key={room.roomname}>
+            <c-aipchild roominfo={room} isshowroom></c-aipchild>
+        </li>
+    </template>
+  </ul>
+    </lightning-card>
+</template>

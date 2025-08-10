@@ -1,0 +1,33 @@
+.app1{
+    background: #E1C91C;
+    text-align: center;
+    padding: 32px 16px;	
+	/* display: flex; */
+	justify-content: center;
+	align-items: center;
+}
+.profile{
+	hight: 200px;
+	width: 200px;
+}
+.socilaIcons{
+	display:  flex;
+	    width: 65px;
+    height: 65x;
+		 
+}
+h1{
+ padding: 12px;
+    font-weight: 800;
+    font-size: x-large;
+    font-family: impact;
+}
+h2{
+	font-size: larger;
+    font-family: 'Salesforce Sans';
+}
+h3{
+	adding: 5px;
+    font-size: 24px;
+    font-family: 'Salesforce Sans';
+}

@@ -1,0 +1,11 @@
+<template>
+ <lightning-card title="Child Component">
+    <div class="slds-m-around_medium" >
+    <p if:true={getData}>  Your Data :  {getData}  </p>
+    <p if:false={getData}>  Your Data : Your Data is Not Received  </p>
+    </div>
+    Testing hardcode values:{getData2}
+ </lightning-card>
+ 
+
+</template>

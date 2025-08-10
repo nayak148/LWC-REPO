@@ -1,0 +1,43 @@
+<template>
+   <div class="container">
+       <div>
+         <img src={imageUrl} alt="imageUrl" height="200" width="200"></img>
+       </div>
+       <div>
+        <div> Invoice # : {InvoiceData.invoiceNo}</div>
+        <div>Created  # : {InvoiceData.CreatedDate}</div>
+        <div>Due Date # : {InvoiceData.invoiceDue}</div>
+       </div>
+      
+       <div>
+        <div>Company Name : {InvoiceData.CompanyName}</div>
+        <div>Address : {InvoiceData.Address}</div>
+       </div>
+       
+       <div>
+        <div> {ClintData.Clint}</div>
+        <div> {ClintData.UserName}</div>
+        <div> {ClintData.Email}</div>
+       </div>
+
+       <div>
+       <div><strong>Services</strong></div>
+       <div><strong>Amount</strong></div>
+       </div>
+       
+        <div> 
+         <template iterator:service ={Services}>
+            <div key={Service.value.Name}>
+             <div>{Service.value.Name}</div>
+             <div>${Service.value.Amount}</div>
+            </div>
+         
+            <div if:true={Service.last} key={Service.value.Name}> 
+                <div><strong>Total Amount :${TotalAmount}</strong></div> 
+            </div>
+
+        </template>
+        </div>
+        <lightning-button variant="brand" label="Generate PDF" onclick={HandleGeneratePdf} ></lightning-button>
+   </div>
+</template>

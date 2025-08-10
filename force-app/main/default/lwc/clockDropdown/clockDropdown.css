@@ -1,0 +1,14 @@
+:host(){
+	--shadeblue :#282950;
+	--white: #ffffff;
+   --skyblue: skyblue;
+   --green: #28B463;
+   --black: black;
+   --shadeyellow: #CFE51D;
+   --shadered : #9F1E1a;
+}
+.selectLabel{
+	color: var(--skyblue);
+	font-size: 14px;
+	text-align: center;
+}

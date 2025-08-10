@@ -1,0 +1,68 @@
+:host(){
+	
+}
+.background-card{
+ /* background: url('/currencyConverterAssets/currencyAppBackground.png'); */
+   background: url(/sfsites/c/resource/currencyConverterAssets/currencyConverterAssets/currencyAppBackground.png);
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover; 
+}
+.custon-icon{
+    --slds-c-icon-color-background: #E1C91C;
+    --slds-c-icon-color-foreground: blue;
+     color:skyblue;
+     transform:rotate(45deg);
+}
+img{
+    display: block;
+    margin: auto;
+}
+.card1{
+   background: #23246B;
+    color: white;
+    max-width: 420px;
+    border-radius: 22px;
+    padding: 12px;
+    align-content: center;
+        margin: auto;
+       
+
+    
+}
+.card2{
+	border-radius:12px;
+    margin: auto;
+    padding: 8px;
+}
+.inp1css{
+        margin-top: 0px;  
+}
+.inp1text{
+    text-align :start;
+    font-style: italic;
+    
+}
+.white-label{
+    color:white;
+}
+.buttoncss{
+    background: #E1C91C;
+    font-size: 22px;
+    font-weight: 800;
+    color: black;
+    padding: 0 10px 0 10px;
+    margin-top: 10px;
+}
+.iconcss{
+    margin-left: 25px;
+}
+currencyTextcss{
+    color: black
+}
+h1{
+    font-weight: bold;
+    text-align: center;
+    font-size: larger;
+    padding-bottom: 10px;
+}

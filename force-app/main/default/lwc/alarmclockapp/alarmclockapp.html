@@ -1,0 +1,28 @@
+<template>
+<div class = "main-card">
+    <h1>Alaram Clock</h1>
+    <div class="img">
+    <img  src={clockImage} alt="clockImage" class={shakeImage}></img>
+     </div>
+    </br>
+    <h2>{CurrentTime}</h2>
+    </br>
+<div class="slds-grid slds-gutters">
+<div class="slds-col">
+   <c-clock-dropdown label="Hour(s)" unique-id="select-hour" option={hour}></c-clock-dropdown>
+</div>
+<div class="slds-col">
+    <c-clock-dropdown label="Minute(s)" unique-id="select-min" option={min}></c-clock-dropdown>
+</div>
+<div class="slds-col">
+    <c-clock-dropdown label="AM/PM" unique-id="select-ampm" option={ampm}></c-clock-dropdown>
+</div>
+</div>
+<template if:false={isAlaramSet}>
+<button class="slds-button slds-button_neutral slds-button_stretch button" disabled={isFieldNotSelected} onclick={setAlaramHandle}>Set Alaram</button>
+</template>
+<template if:true={isAlaramSet}>
+<button class="slds-button slds-button_neutral slds-button_stretch button" onclick={clearAlaramHandle}>Clear Alaram</button>
+</template>
+</div>
+</template>

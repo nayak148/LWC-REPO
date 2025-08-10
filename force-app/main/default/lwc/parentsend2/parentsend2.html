@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Parent Component 2 by chatGtp">
+        <div class="slds-m-around_medium">
+            <lightning-input 
+                label="Enter Data" 
+                onchange={handleInputChange}>
+            </lightning-input>
+
+            <lightning-button 
+                label="Submit" 
+                variant="brand" 
+                class="slds-m-top_medium"
+                onclick={handleSubmit}>
+            </lightning-button>
+
+            <!-- Pass data to child component -->
+            <c-childreceive2 received-data={button}></c-childreceive2>
+        </div>
+    </lightning-card>
+</template>

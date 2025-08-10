@@ -1,0 +1,14 @@
+<!-- accountList.html -->
+<template>
+    <lightning-button label="Load Accounts" onclick={handleLoadAccounts}></lightning-button>
+    <template if:true={accounts}>
+        <lightning-datatable
+            data={accounts}
+            columns={columns}
+            key-field="Id">
+        </lightning-datatable>
+    </template>
+    <template if:true={error}>
+        <p>{error}</p>
+    </template>
+</template>

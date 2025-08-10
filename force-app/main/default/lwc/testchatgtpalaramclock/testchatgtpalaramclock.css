@@ -1,0 +1,13 @@
+.clock {
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.time {
+    font-size: 2em;
+    margin: 20px 0;
+}
+
+.alarm-set {
+    margin: 10px 0;
+}

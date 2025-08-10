@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="Accounts">
+        <template if:true={accounts}>
+            <lightning-combobox
+                name="accounts"
+                label="Select Account"
+                value={selectedAccountId}
+               options={accountsOptions}
+                onchange={handleAccountSelect}>
+            </lightning-combobox>
+        </template>
+    </lightning-card>
+
+    <lightning-card title="Contacts">
+        <template if:true={contacts}>
+            <ul>
+                <template for:each={contacts} for:item="contact">
+                    <li key={contact.Id}>{contact.Name} - {contact.Email}</li>
+                </template>
+            </ul>
+        </template>
+    </lightning-card>
+</template>

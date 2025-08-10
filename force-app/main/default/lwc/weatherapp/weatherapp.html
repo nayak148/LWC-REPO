@@ -1,0 +1,72 @@
+<template>
+    <div class="app flex-center">
+        <div class="card">
+            <header class="flex-center">
+                <h1>Weather App</h1>
+            </header>
+            <!-- <div class="success-msg ">testing dynamivc class</div>
+            <div class="error-msg ">testing dynamivc class</div> -->
+
+            <template if:true={loadingText}>
+               <div class={dynamicClass}>{loadingText}</div>
+            </template>
+<template if:false={response}>
+        <section>
+            <form onsubmit={submithandler}>
+            <input  type="text" 
+                        placeholder="Enter the Location"
+                        required class="slds-button_stretch"
+                        onkeyup={searchhandler} 
+                        spellcheck="false"></input>
+            <button class="slds-button_stretch"
+                    type="submit">Search</button>
+            </form>
+        </section> 
+</template>
+
+<template if:true={response}>
+        <section class="slds-m-around_large text-center">
+        <img src={cloudIcon} alt="cloudIcon" class="imgsize" ></img>
+        <div class="temperature">
+            <span>{response.temperature}</span>
+            <span>°</span>C
+        </div>
+        <div class="description">{response.description}</div>
+        <div class="textandimg">
+            <img src={mapIcon} alt="mapIcon"></img>
+            <div class="location">{response.location}</div>
+        </div>
+        </section>
+    
+
+<footer>
+    <div class="F-left">
+        <img src={thermometerIcon} alt="thermometerIcon"></img>
+            <span>{response.feels_like}°C</span><p></p>
+            <span>Feels like</span>
+    </div>
+    <div class="F-right">
+        <img src={dropletIcon} alt="dropletIcon"></img>
+        <span>{response.humidity}C</span> <p></p>
+            <span>Humidity</span>             
+    </div>
+</footer>
+
+</template>
+
+       </div>
+    </div>
+   
+   <!-- <div class="imgsize">
+    <img src={clearIcon} alt="arrow-backIcon"></img>
+    
+    
+    <img src={hazeIcon} alt="hazeIcon"></img>
+    
+    <img src={rainIcon} alt="rainIcon"></img>
+    <img src={snowIcon} alt="snowIcon"></img>
+    <img src={stormIcon} alt="stormIcon"></img>
+    
+    <img src={arrowbackIcon} alt="arrow-backIcon"></img>
+    </div>  -->
+</template>

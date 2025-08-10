@@ -1,0 +1,61 @@
+<template>
+    <lightning-card title="Lead and Tour Checklist Editor">
+        <template if:true={leadData}>
+        <!-- Lead Checkboxes -->
+       <div class="slds-p-around_medium">
+            <lightning-input type="checkbox" name="Cash__c" label="Cash" checked={leadData.Cash__c} data-field="Cash__c" onchange={handleLeadChange}></lightning-input>
+            <lightning-input type="checkbox" name="UPI__c" label="UPI" checked={leadData.UPI__c} data-field="UPI__c" onchange={handleLeadChange}></lightning-input>
+            <lightning-input type="checkbox" name="NET_BANKING__c" label="Net Banking" data-field="NET_BANKING__c" checked={leadData.NET_BANKING__c} onchange={handleLeadChange}></lightning-input>
+ 
+            <hr class="slds-m-vertical_medium"/>
+       </div> 
+    
+    </template>
+    
+
+   <lightning-card title="Tour Checklists">
+    <template if:true={checklists}>
+        <div class="slds-p-around_medium">
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_striped">
+                <thead>
+                    <tr class="slds-line-height_reset">
+                        <th scope="col"><div class="slds-truncate">Script</div></th>
+                        <th scope="col"><div class="slds-truncate">Checklist</div></th>
+                        <th scope="col"><div class="slds-truncate">Sentiment</div></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={checklists} for:item="row">
+                        <tr key={row.Id}>
+                            <td>
+                                <lightning-formatted-text value={row.Script__c}></lightning-formatted-text>
+                            </td>
+                            <td>
+                                <lightning-input type="checkbox"
+                                                 checked={row.CheckList__c}
+                                                 data-id={row.Id}
+                                                 data-field="CheckList__c"
+                                                 onchange={handleChecklistChange}>
+                                </lightning-input>
+                            </td>
+                            <td>
+                                <lightning-combobox value={row.Sentement__c}
+                                                    data-id={row.Id}
+                                                    data-field="Sentement__c"
+                                                    options={sentimentOptions}
+                                                    onchange={handleChecklistChange}>
+                                </lightning-combobox>
+                            </td>
+                            
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+        </template>
+    </lightning-card>
+        <div class="slds-p-around_medium">
+            <lightning-button label="Save All" variant="brand" onclick={handleSave}></lightning-button>
+        </div>
+    </lightning-card>
+</template>

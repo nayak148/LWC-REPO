@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="sending Data from Parent To Child">
+    <lightning-card title="Parent-Component">
+  <lightning-input label="Enter Details" onchange={capMe} type="text"></lightning-input>
+   <lightning-button label="submit" onclick={clickMe} ></lightning-button>
+ </lightning-card>
+</lightning-card>
+<!-- Passing data to child -->
+    <c-childreceive get-data={button}></c-childreceive>
+
+
+</template>

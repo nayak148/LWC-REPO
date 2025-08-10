@@ -1,0 +1,61 @@
+<template>
+  
+    <div class="background-card">
+        <div class="card1">
+            <div class="slds card card2">
+                  <h1>Currency Converter</h1>
+
+                  <img src={currencyImage} alt="currencyImage" height="150" width="150"></img>
+
+                    <form onsubmit={submithandler}>
+                      <div class="inp1text">
+                           <!-- <label for="myInput" class="white-label">Enter Amount</label> -->
+                  <lightning-input type="number" name="inp1" id="myInput" label="Amount" 
+                  placeholder="Enter your amount..." class="inp1css" required onchange={handleChange} ></lightning-input>
+                  </div>
+<div class="slds-grid slds-gutters" style="color:black">
+<div class="slds-col">
+
+<lightning-combobox
+           
+            name="countryFrom"
+            label="From"
+            value={countryFrom}
+            placeholder="currency"
+            options={countrylist}
+            variant="label-hidden" 
+            onchange={handleChange}></lightning-combobox>
+
+</div>
+<div class="slds-col iconcss">
+<lightning-icon class="custon-icon" icon-name='action:change_record_type' alternative-text='change_record_type' size='medium' title='change_record_type' ></lightning-icon>
+</div>
+<div class="slds-col">
+
+<lightning-combobox
+            name="countryTo"
+            label="To"
+            value={countryTo}
+            placeholder="currency"
+            options={countrylist}
+            variant="label-hidden" 
+            onchange={handleChange} ></lightning-combobox>
+ 
+</div>
+</div>
+ 
+</br>
+ <div class="slds-text-align_center">
+   <div class="currencyresult">{inp1} {countryFrom} = {result} {countryTo}</div>     
+   <div class="currencyresult">{error}</div>    
+ </div>
+ 
+
+
+<button class="slds-button slds-button_stretch buttoncss">convert</button>
+
+               </form>     
+             </div> 
+        </div>
+    </div>
+</template>

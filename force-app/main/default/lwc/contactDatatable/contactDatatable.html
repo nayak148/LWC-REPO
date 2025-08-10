@@ -1,0 +1,19 @@
+<template>
+<div style="height: 500px;">
+        <lightning-datatable 
+        key-field="id" data={contactData} columns={contactColumns}
+        onrowaction={handleRowAction} onsort={handleSort} row-number-offset="0"
+        sorted-by = {sortedBy} sorted-direction={sortedDirection} default-sort-direction ={defaultSortDirection} 
+        onheaderaction={handleHeaderAction} hide-checkbox-column ={hideCheckboxColumn}
+        resize-column-disabled min-column-width="100" column-widths-mode="auto" show-row-number-column ={showRowNumberColumn} 
+        selected-rows={selectedRows} onrowselection={handleRowSelection}
+        is-loading={isLoading} enable-infinite-loading={enableInfiniteLoading} onloadmore={loadContacts}>
+        </lightning-datatable>
+
+       <!-- ="false" -->
+    </div>
+
+  
+
+
+</template>

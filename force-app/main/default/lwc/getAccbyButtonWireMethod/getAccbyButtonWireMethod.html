@@ -1,0 +1,22 @@
+<!-- accountList.html -->
+<template>
+    <lightning-card title="Account List by Clicking button wire method" icon-name="standard:account">
+        <div class="slds-m-around_medium">
+            <lightning-button label="Show Accounts" onclick={handleShowAccounts}></lightning-button>
+        </div>
+
+        <!-- Display the data only when showAccounts is true -->
+        <template if:true={showAccounts}>
+            <template if:true={accounts}>
+                <lightning-datatable
+                    data={accounts}
+                    columns={columns}
+                    key-field="Id">
+                </lightning-datatable>
+            </template>
+            <template if:true={error}>
+                <p>Error: {error.body.message}</p>
+            </template>
+        </template>
+    </lightning-card>
+</template>

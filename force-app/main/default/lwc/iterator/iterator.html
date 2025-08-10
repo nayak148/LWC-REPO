@@ -1,0 +1,28 @@
+<template>
+    <lightning-card title="method iterator ==> for:each ">
+    <ul class="slds-p-left_large">
+            <template for:each={StudentNames} for:item="name">
+                <li key={name}>
+                <b> student name : {name} </b>
+
+                </li>
+             </template>
+    </ul>
+    </lightning-card>
+    <br></br>
+     <lightning-card title="method iterator ==> terator:it">
+    <ul class="slds-p-left_large">
+            <template iterator:it={StudentNames} >
+                
+                <li key={it.value}>
+                <b> student name : {it.value} </b>
+
+                </li>
+               
+             </template>
+    </ul>
+    </lightning-card>
+    
+  
+   
+</template>

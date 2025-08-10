@@ -1,0 +1,19 @@
+<template>
+<lightning-card title=" search by case status" >
+   <lightning-input label="Search by Status"
+                     type="search"
+                     onchange={capMe}
+   ></lightning-input>
+   <lightning-button label="Submit" onclick={callMe} variant="brand"></lightning-button>
+  <template if:true={cases.length}>
+    <lightning-dataTable 
+          data ={cases}
+          columns={columns}
+          key-field="id"
+    ></lightning-dataTable>
+
+
+  </template>
+
+</lightning-card>
+</template>
