@@ -2,8 +2,11 @@ public class CaseManagementModule2 {
 	
 	 @AuraEnabled(cacheable=true)
       public static List<Case> getCases(String status) {
-        String statusFilter = '%' + status + '%';
-        return [SELECT Id,Account.Name, Contact.name,subject, CaseNumber, Status, Priority FROM Case WHERE Status LIKE :statusFilter];
+       // String statusFilter = '%' + status + '%';
+        return [SELECT Id,Account.Name, Contact.name,subject, CaseNumber, Status, Priority FROM Case WHERE Status = :status
+            ORDER BY CreatedDate DESC
+            LIMIT 50
+;
     }
 	
 }

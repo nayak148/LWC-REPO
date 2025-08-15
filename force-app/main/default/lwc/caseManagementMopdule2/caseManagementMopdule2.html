@@ -1,7 +1,22 @@
 <template>
-    <lightning-card title="Case Management Dashboard Module 2" icon-name="standard:case">
+    <lightning-card title="LWC : caseManagementMopdule2 @wired picklist" icon-name="standard:case">
         <div class="slds-m-around_medium">
-            <lightning-input label="Filter by Status" onchange={handleStatusChange}></lightning-input>
+                 <div class="slds-p-around_medium">
+            <lightning-combobox
+                name="statusFilter"
+                label="Select Case Status"
+                value={selectedStatus}
+                placeholder="Select Status"
+                options={statusOptions}
+                onchange={handleStatusChange}>
+            </lightning-combobox>
+
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading"></lightning-spinner>
+            </template>
+        </div>
+
+            <!-- <lightning-input label="Filter by Status" onchange={handleStatusChange}></lightning-input> -->
             <lightning-button label="Refresh" onclick={handleRefresh} class="slds-m-left_small"></lightning-button>
         </div>
         <template if:true={cases.length}>
